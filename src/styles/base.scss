@@ -1,0 +1,76 @@
+/*element-ui 样式覆盖*/
+$inputBorderBg:#fdb730;
+$buttonBg:#f85415;
+
+.el-input__inner:focus {
+  border-color: $inputBorderBg;
+}
+.el-input__inner:hover {
+  border-color: $inputBorderBg;
+}
+.el-form-item.is-success .el-input__inner, .el-form-item.is-success .el-input__inner:focus, .el-form-item.is-success .el-textarea__inner, .el-form-item.is-success .el-textarea__inner:focus {
+  border-color: #fdb730;
+}
+.el-select-dropdown__item.selected {
+  color: $inputBorderBg;
+}
+.el-select .el-input__inner:focus {
+  border-color: $inputBorderBg;
+}
+.el-select .el-input.is-focus .el-input__inner {
+  border-color: $inputBorderBg;
+}
+.el-checkbox.is-bordered.is-checked {
+  border-color: $inputBorderBg;
+}
+.el-checkbox__input.is-checked+.el-checkbox__label {
+  color: $inputBorderBg;
+}
+.el-checkbox__input.is-focus .el-checkbox__inner{
+  border-color: $inputBorderBg;
+}
+.el-checkbox__input:hover .el-checkbox__inner{
+  border-color: $inputBorderBg;
+}
+.el-checkbox__input.is-checked.is-focus .el-checkbox__inner{
+   background-color: $inputBorderBg;
+  border-color: $inputBorderBg;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+  background-color: $inputBorderBg;
+  border-color: $inputBorderBg;
+}
+.el-checkbox__label:hover{
+  color: $inputBorderBg;
+}
+.el-button.el-button--primary {
+  background-color: $buttonBg;
+  border: none;
+}
+.el-pager li.active {
+  color: $inputBorderBg;
+}
+.el-pager li:hover {
+  color: $inputBorderBg;
+}
+.el-table .el-table__header th {
+  background-color: rgb(255,230,47);
+}
+.el-dropdown-menu__item {
+  text-align: center;
+}
+.el-dropdown-menu__item:hover {
+  background-color: #fff5ac;
+  color: #000;
+}
+.el-dropdown-menu__item:focus {
+  background-color: #fff5ac;
+  color: #000;
+}
+.el-dropdown-menu__item:not(.is-disabled):hover {
+  background-color: #fff5ac;
+  color: #000;
+}
+.el-loading-spinner .path {
+  stroke: $buttonBg;
+}

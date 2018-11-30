@@ -1,0 +1,43 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#app {
+	/*font-family: PingFang-Bold, PingFang-Medium;*/
+	font-family: "微软雅黑";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: #ffffff;
+}
+
+.container {
+	width: 86%
+	/*width: 1280px;*/
+}
+
+.row {
+	border-bottom: 1px solid #ccc
+}
+
+.row_bottom {
+	border-bottom: 1px solid #ccc
+}
+
+.clear-col-xs {
+	border: 0;
+}
+
+.top-col-xs {
+	padding-top: 15px;
+}
+
+/*@font-face {
+	font-family: 'PingFang-Bold';
+	src: url('../fonts/PingFang Bold.ttf');
+}
+
+@font-face {
+	font-family: 'PingFang-Medium';
+	src: url('../fonts/PingFang Medium.ttf');
+}*/
