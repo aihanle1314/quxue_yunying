@@ -1,9 +1,4 @@
-import router from '../../router'
-import { constantRouterMap } from '@/router'
-import { asyncRouterMap } from '@/router/shixun'
-import { waijiaoRouterMap } from '@/router/waijiao'
-import { qxappRouterMap } from '@/router/qxapp'
-import { schooladminRouterMap } from '@/router/schooladmin'
+import { asyncRouterMap, constantRouterMap } from '@/router'
 
 /**
  * 通过meta.role判断是否与当前用户权限匹配
@@ -37,18 +32,6 @@ function filterAsyncRouter (asyncRouterMap, roles) {
   return accessedRouters
 }
 
-function getProjRoute (proj) {
-  if (proj.indexOf('外教') > -1) {
-    return waijiaoRouterMap
-  } else if (proj.indexOf('师训') > -1) {
-    return asyncRouterMap
-  } else if (proj.indexOf('趣学') > -1) {
-    return qxappRouterMap
-  } else if (proj.indexOf('账户') > -1) {
-    return schooladminRouterMap
-  }
-}
-
 const permission = {
   state: {
     routers: constantRouterMap,
@@ -70,27 +53,15 @@ const permission = {
   },
   actions: {
     GenerateRoutes ({ commit }, data) {
-      commit('CLEAR_ROUTES')
       return new Promise(resolve => {
-        const proj = data.proj
-        const roles = data.roles
+        const { roles } = data
         let accessedRouters
-        let currRouters = getProjRoute(proj)
         if (roles.indexOf('admin') >= 0) {
-          accessedRouters = currRouters
+          accessedRouters = asyncRouterMap
         } else {
-          accessedRouters = filterAsyncRouter(currRouters, roles)
+          accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
         }
         commit('SET_ROUTERS', accessedRouters)
-        resolve()
-      })
-    },
-    AddRouters ({ commit, state }, project) {
-      return new Promise(resolve => {
-        for (var i = 0; i < project.length; i++) {
-          var temp = getProjRoute(project[i].name)
-          router.addRoutes(temp)
-        }
         resolve()
       })
     }
