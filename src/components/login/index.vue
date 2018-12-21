@@ -104,10 +104,10 @@ export default {
 			  that.teacherID = that.$store.getters.userId
 			  setCookie('teacherID', that.teacherID, 1000 * 60)
 
-			  this.$router.push({ path: '/' })
+			  this.$router.push({ path: '/01' })
 		  }).catch(() => {
 			  that.showTishi = true
-	      that.tishi = response.msg
+	      // that.tishi = response.msg
 		  })
 
 		// jQuery.support.cors = true

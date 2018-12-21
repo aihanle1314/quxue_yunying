@@ -5,8 +5,8 @@ import { getToken } from '@/utils/auth'
 
 // 创建axios实例
 const service = axios.create({
-  // baseURL: process.env.BASE_API, // api的base_url 发布/正式地址
-  baseURL: process.env.BASE_API_TEST, // api的base_url 测试地址
+  baseURL: process.env.BASE_API_USER, // api的base_url 发布/正式地址
+  // baseURL: process.env.BASE_API_USER_TEST, // api的base_url 测试地址
   timeout: 15000 // 请求超时时间
 })
 
@@ -15,7 +15,6 @@ service.interceptors.request.use(config => {
   if (getToken()) {
     config.headers['Access-Token'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
   }
-  config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
   return config
 }, error => {
 // Do something with request error
@@ -32,8 +31,8 @@ service.interceptors.response.use(
     const res = response.data
     if (res.code !== 1000) {
       // 50008:非法的token; 50012:其他客户端登录了;  50014:Token 过期了;
-      if (res.code === -1001) {
-        MessageBox.confirm('账号异常，请重新登录', '确定登出', {
+      if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
+        MessageBox.confirm('Token异常，请重新登录', '确定登出', {
           confirmButtonText: '重新登录',
           cancelButtonText: '取消',
           type: 'warning'
@@ -43,11 +42,7 @@ service.interceptors.response.use(
           })
         })
       }
-      Message({
-        message: res.msg,
-        type: 'error',
-        duration: 5 * 1000
-      })
+      Message.error(res.msg)
       return null
       // return Promise.reject('error')
     } else {

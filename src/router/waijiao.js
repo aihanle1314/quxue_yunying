@@ -8,7 +8,7 @@ import Student from '@/components/org/student'
 
 export const waijiaoRouterMap = [
   {
-    path: '/01',
+    path: '/03',
     redirect: '/waijiao/home'
   },
   {

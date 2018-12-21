@@ -3,6 +3,12 @@ export function isvalidUsername (str) {
   return validMap.indexOf(str.trim()) >= 0
 }
 
+/* 是否是公司邮箱 */
+export function isWscnEmail (str) {
+  const reg = /^[a-z0-9](?:[-_.+]?[a-z0-9]+)*@wz\.com$/i
+  return reg.test(str.trim())
+}
+
 /* 合法uri */
 export function validateURL (textval) {
   const urlregex = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/
@@ -31,4 +37,13 @@ export function validatAlphabets (str) {
 export function validatPhone (mobile) {
   var reg = /^[1][3,4,5,7,8][0-9]{9}$/
   return reg.test(mobile)
+}
+
+export function oneOf (value, validList) {
+  for (let i = 0; i < validList.length; i++) {
+    if (value === validList[i]) {
+      return true
+    }
+  }
+  return false
 }

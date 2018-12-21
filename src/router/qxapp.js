@@ -9,7 +9,7 @@ import Student from '@/components/qxapp/Student/index'
 
 export const qxappRouterMap = [
   {
-    path: '/03',
+    path: '/01',
     redirect: 'qxapp/class'
   },
   {

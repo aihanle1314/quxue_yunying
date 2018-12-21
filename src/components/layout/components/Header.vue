@@ -51,10 +51,11 @@ export default {
     //   return show
     // },
     projectName () {
+      console.log(this.project, 99999)
       if (this.selectProName) {
         return this.selectProName
       } else {
-        return this.project[0].name
+        return this.project[2].name
       }
     }
   },
@@ -89,11 +90,11 @@ export default {
         this.selectProName = command.name
         setUserHeader(command.name)
         let path = '/'
-        if (command.name.indexOf('外教') > -1) {
+        if (command.name.indexOf('趣学') > -1) {
           path += '01'
         } else if (command.name.indexOf('师训') > -1) {
           path += '02'
-        } else if (command.name.indexOf('趣学') > -1) {
+        } else if (command.name.indexOf('外教') > -1) {
           path += '03'
         } else if (command.name.indexOf('账户') > -1) {
           path += 'schooladmin/account'
